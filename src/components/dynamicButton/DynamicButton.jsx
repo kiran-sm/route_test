@@ -2,11 +2,11 @@ import React from "react";
 
 const DynamicButton = () => {
   const buttons = [];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i <= 20; i++) {
     buttons.push(
       <button
         key={i}
-        style={{ background: `#ab${i}`, display: "block", margin: "5px" }}
+        style={{ background: `#a${i}b`, display: "block", margin: "5px" }}
       >
         Button {i}
       </button>
