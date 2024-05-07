@@ -1,7 +1,23 @@
 import React from "react";
 
 const DynamicButton = () => {
-  return <div>DynamicButton</div>;
+  const buttons = [];
+  for (let i = 0; i < 20; i++) {
+    buttons.push(
+      <button
+        key={i}
+        style={{ background: `#ab${i}`, display: "block", margin: "5px" }}
+      >
+        Button {i}
+      </button>
+    );
+  }
+  return (
+    <>
+      DynamicButton
+      <div>{buttons}</div>
+    </>
+  );
 };
 
 export default DynamicButton;
