@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaPen } from "react-icons/fa";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 const TodoList = () => {
   const [userInput, setUserInput] = useState("");
@@ -12,6 +14,11 @@ const TodoList = () => {
     updateList.splice(index, 1);
     setAddList(updateList);
   };
+
+  const editHandler = () => {
+    alert("this function not enabled");
+  };
+
   return (
     <div style={{ margin: "25px 0" }}>
       <input
@@ -30,7 +37,27 @@ const TodoList = () => {
         {addList.map((list, index) => (
           <li key={index} style={{ margin: "25px" }}>
             {list}{" "}
-            <button onClick={() => deleteHandler(index)}>Delete Task</button>{" "}
+            <button
+              style={{
+                background: "#f00",
+                marginRight: "20px",
+                padding: "5px",
+                borderRadius: "5px",
+              }}
+              onClick={() => deleteHandler(index)}
+            >
+              <RiDeleteBin5Line style={{ height: "12px", width: "12px" }} />
+            </button>
+            <button
+              style={{
+                background: "#0f0",
+                padding: "5px",
+                borderRadius: "5px",
+              }}
+              onClick={() => editHandler(index)}
+            >
+              <FaPen style={{ height: "12px", width: "12px" }} />
+            </button>
           </li>
         ))}
       </ui>
