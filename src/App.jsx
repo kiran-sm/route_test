@@ -1,30 +1,53 @@
-import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Link,
+  Outlet,
+  Route,
+  Routes,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import "./App.css";
-import { Counter, DynamicButton, TodoList, AutoCount } from "./components";
+import {
+  Counter,
+  DynamicButton,
+  TodoList,
+  AutoCount,
+  Navbar,
+} from "./components";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        {" "}
+        <Navbar />
+        <Counter />
+      </>
+    ),
+  },
+  {
+    path: "/todo",
+    element: (
+      <>
+        {" "}
+        <Navbar />
+        <TodoList />
+      </>
+    ),
+  },
+]);
 
 function App() {
   return (
     <>
-      <Counter />
+      <Navbar />
+      <RouterProvider router={router} />
+      {/* <Counter />
       <TodoList />
       <DynamicButton />
-      <AutoCount />
-      {/* 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" elemnt={<TodoList />}>
-            <Route index element={<AutoCount />} />
-          </Route>
-        </Routes>
-      </BrowserRouter> */}
-      {/* <nav>
-        <ul>
-          <li>
-            <Link to="./components/autoCount">Check</Link>
-          </li>
-        </ul>
-      </nav>
-      <Outlet /> */}
+      <AutoCount /> */}
     </>
   );
 }

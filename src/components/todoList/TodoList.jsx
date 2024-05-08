@@ -6,8 +6,10 @@ const TodoList = () => {
   const [userInput, setUserInput] = useState("");
   const [addList, setAddList] = useState([]);
   const addListHandler = () => {
-    setAddList([userInput, ...addList]);
-    setUserInput("");
+    if (userInput.trim() != "" || userInput != "") {
+      setAddList([userInput, ...addList]);
+      setUserInput("");
+    }
   };
   const deleteHandler = (index) => {
     const updateList = [...addList];
@@ -35,7 +37,7 @@ const TodoList = () => {
       <h3>Added List</h3>
       <ui>
         {addList.map((list, index) => (
-          <li key={index} style={{ margin: "25px" }}>
+          <li key={index} style={{ margin: "25px" }} type="1">
             {list}{" "}
             <button
               style={{
